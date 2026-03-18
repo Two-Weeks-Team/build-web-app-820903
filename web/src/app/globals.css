@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 32 31% 10%;
+  --foreground: 40 20% 94%;
+  --card: 30 22% 15%;
+  --muted: 28 16% 22%;
+  --muted-foreground: 33 12% 73%;
+  --border: 30 18% 28%;
+  --primary: 22 82% 57%;
+  --primary-foreground: 38 50% 98%;
+  --accent: 146 47% 44%;
+  --accent-foreground: 146 100% 96%;
+  --success: 142 62% 57%;
+  --warning: 41 95% 62%;
+  --destructive: 2 82% 63%;
+  --radius: 14px;
+  --shadow-soft: 0 8px 28px rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.22);
+  --shadow-pulse: 0 0 0 3px rgba(255, 127, 60, 0.18);
+}
+
+* { border-color: hsl(var(--border)); }
+
+body {
+  @apply bg-background text-foreground font-[--font-body];
+  background-image:
+    radial-gradient(circle at 18% 10%, rgba(255, 135, 52, 0.15), transparent 35%),
+    radial-gradient(circle at 84% 16%, rgba(77, 197, 129, 0.13), transparent 34%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent 36%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 24px),
+    linear-gradient(180deg, rgba(40, 27, 16, 0.22), rgba(20, 14, 10, 0.6));
+  min-height: 100vh;
+}
+
+h1, h2, h3 { @apply font-[--font-display]; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-up {
+    animation: fadeInUp 420ms ease-out both;
+  }
+  .pulse-rebalance {
+    animation: pulseRebalance 900ms ease-out;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseRebalance {
+  0% { box-shadow: var(--shadow-pulse); }
+  100% { box-shadow: none; }
+}
